@@ -1,9 +1,32 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-home-page',
-  imports: [],
+  imports: [NzButtonModule, CommonModule],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
-export class HomePage {}
+export class HomePage {
+  columns = [
+    {
+      title: 'Ветер',
+      subtitle: 'Скорость ветра по странам СНГ',
+      description: 'Визуализируйте распределение ветровых потоков через диаграммы',
+      background: 'wind.jpg',
+    },
+    {
+      title: 'Влажность',
+      subtitle: 'Недельные показатели влажности для Минска',
+      description: 'Планируйте деятельность на основе данных об атмосферной влажности',
+      background: 'humidity.jpg',
+    },
+    {
+      title: 'Графики',
+      subtitle: 'Интерактивные временные ряды температур',
+      description: 'Выбирайте период наблюдения день неделя или месяц для анализа',
+      background: 'temperature.jpg',
+    },
+  ];
+}
