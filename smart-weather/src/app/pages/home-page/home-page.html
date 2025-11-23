@@ -1,1 +1,51 @@
-<p>home-page</p>
+<section class="presentation">
+  <div class="presentation__container">
+    <div class="presentation__content">
+      <div class="presentation__text-container">
+        <h1 class="presentation__title">Точные прогнозы погоды для стран СНГ</h1>
+        <p class="presentation__description">
+          SmartWeather предоставляет надёжный анализ метеорологических данных в реальном времени. Мы
+          помогаем вам принимать решения, основанные на точной информации о климате и атмосферных
+          условиях.
+        </p>
+        <div class="presentation__actions">
+          <button nz-button nzSize="large" class="presentation__button">Исследовать</button>
+          <button nz-button nzSize="large" nzGhost class="presentation__button">Подробнее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="temperature-section">
+  <div class="temperature-section__container">
+    <div class="temperature-section__content">
+      <div class="temperature-section__header">
+        <span class="temperature-section__subtitle">Температура</span>
+        <h2 class="temperature-section__title">Анализ температурных данных по странам</h2>
+        <p class="temperature-section__description">
+          Отслеживайте изменения температуры в регионе СНГ
+        </p>
+      </div>
+
+      <div class="temperature-section__columns">
+        <div
+          *ngFor="let column of columns; let i = index"
+          class="temperature-column"
+          [style.background-image]="'url(/assets/images/' + column.background + ')'"
+        >
+          <div class="temperature-column__content">
+            <span class="temperature-column__label">{{ column.title }}</span>
+            <h3 class="temperature-column__subtitle">{{ column.subtitle }}</h3>
+            <p class="temperature-column__description">{{ column.description }}</p>
+            <button nz-button class="temperature-column__button">Смотреть ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-temperature-chart-section></app-temperature-chart-section>
+<app-temperature-graph-section></app-temperature-graph-section>
+<app-humidity-graph-section></app-humidity-graph-section>

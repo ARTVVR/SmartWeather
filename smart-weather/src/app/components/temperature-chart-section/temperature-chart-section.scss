@@ -1,0 +1,161 @@
+.table-section {
+  background: #cce3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1309px;
+
+  &__container {
+    width: 1440px;
+    height: auto;
+    padding: 110px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    width: 1280px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+    width: 768px;
+  }
+
+  &__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 60px;
+    color: #000000;
+    margin: 16px 0 0 0;
+    line-height: 1.1;
+  }
+
+  &__description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #666666;
+    margin: 32px 0 0 0;
+    line-height: 1.6;
+  }
+
+  &__table-container {
+    margin-top: 18px;
+    width: 1280px;
+    height: auto;
+    border-radius: 12px;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1440px) {
+  .table-section {
+    &__container {
+      width: 100%;
+      padding: 110px 20px;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .table-section {
+    &__content {
+      width: 100%;
+    }
+
+    &__table-container {
+      width: 100%;
+      max-width: 1280px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .table-section {
+    height: auto;
+    min-height: 1000px;
+
+    &__container {
+      height: auto;
+      padding: 80px 20px;
+    }
+
+    &__header {
+      width: 90%;
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table-section {
+    min-height: 800px;
+
+    &__container {
+      padding: 60px 20px;
+    }
+
+    &__header {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+
+    &__table-container {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .table-section {
+    min-height: 700px;
+
+    &__container {
+      padding: 40px 16px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 16px;
+      margin: 20px 0 0 0;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .table-section {
+    &__title {
+      font-size: 28px;
+    }
+  }
+}

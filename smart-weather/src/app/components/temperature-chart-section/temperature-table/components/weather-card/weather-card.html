@@ -1,0 +1,22 @@
+<div class="weather-card" [style.animation-delay]="animationDelay() + 'ms'">
+  <div class="card-header">
+    <div class="card-main-info">
+      <div class="country-info">
+        <span class="flag-icon">🏴</span>
+        <span class="country-name">{{ weatherData().country }}</span>
+      </div>
+      <div class="temperature-badge" [ngStyle]="getTemperatureStyles()">{{ temperature }}°C</div>
+    </div>
+    <div class="capital-info">{{ weatherData().capital }}</div>
+  </div>
+  <div class="card-body">
+    <div class="weather-info">
+      <span class="weather-icon">{{ getWeatherIcon() }}</span>
+      <span class="weather-text">{{ getWeatherDescription() }}</span>
+    </div>
+    <div class="time-info">
+      <span class="time-icon">🕒</span>
+      <span class="time-text">{{ time | date: 'HH:mm' }}</span>
+    </div>
+  </div>
+</div>

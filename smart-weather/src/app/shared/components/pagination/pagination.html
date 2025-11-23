@@ -1,0 +1,37 @@
+<div class="pagination-section">
+  <div class="pagination-info">
+    Показано {{ paginatedCount() }} из {{ totalCount() }} записей
+  </div>
+  <div class="pagination-controls">
+    <button
+      (click)="onPreviousPage()"
+      [disabled]="!canNavigatePrevious()"
+      class="pagination-button"
+    >
+      ←
+    </button>
+    <div class="pagination-numbers">
+      @for (page of visiblePageNumbers(); track page) {
+        @if (page === '...') {
+          <span class="pagination-dots">...</span>
+        } @else {
+          <button
+            (click)="onPageChange(page)"
+            [class.active]="page === currentPage()"
+            class="pagination-number"
+          >
+            {{ page }}
+          </button>
+        }
+      }
+    </div>
+    <button
+      (click)="onNextPage()"
+      [disabled]="!canNavigateNext()"
+      class="pagination-button"
+    >
+      →
+    </button>
+  </div>
+</div>
+

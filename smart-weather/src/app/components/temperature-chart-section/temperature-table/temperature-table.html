@@ -1,0 +1,60 @@
+<div class="weather-table-container">
+  <app-table-controls
+    [searchTerm]="searchTerm()"
+    [sortColumn]="sortColumn()"
+    [sortDirection]="sortDirection()"
+    [isLoading]="isLoading()"
+    (searchChange)="tableState.updateSearchQuery($event)"
+    (sortChange)="tableState.updateSort($event)"
+    (refresh)="refreshWeatherData()"
+  />
+
+  <div class="table-content">
+    <div class="desktop-table">
+      <div class="weather-table">
+        <div class="table-header-row">
+          <div class="table-cell header-cell">Страна</div>
+          <div class="table-cell header-cell">Столица</div>
+          <div class="table-cell header-cell">Температура</div>
+          <div class="table-cell header-cell">Погода</div>
+          <div class="table-cell header-cell">Время</div>
+        </div>
+
+        <div class="table-body">
+          @for (item of paginatedData(); track trackByCountry($index, item)) {
+            <app-weather-table-row [weatherData]="item" />
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-cards">
+      @for (item of paginatedData(); track trackByCountry($index, item); let i = $index) {
+        <app-weather-card [weatherData]="item" [animationDelay]="i * 50" />
+      }
+    </div>
+
+    @if (isLoading()) {
+      <app-loading-state />
+    }
+
+    @if (shouldShowEmptyState()) {
+      <app-empty-state />
+    }
+  </div>
+
+  @if (shouldShowPagination()) {
+    <app-pagination
+      [currentPage]="currentPage()"
+      [totalPages]="totalPages()"
+      [visiblePageNumbers]="visiblePageNumbers()"
+      [paginatedCount]="paginatedData().length"
+      [totalCount]="filteredData().length"
+      [canNavigatePrevious]="canNavigateToPreviousPage()"
+      [canNavigateNext]="canNavigateToNextPage()"
+      (pageChange)="tableState.setCurrentPage($event)"
+      (nextPage)="tableState.navigateToNextPage()"
+      (previousPage)="tableState.navigateToPreviousPage()"
+    />
+  }
+</div>
