@@ -1,10 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { TemperatureChartSection } from '../../components/temperature-chart-section/temperature-chart-section';
+import { TemperatureGraphSection } from '../../components/temperature-graph-section/temperature-graph-section';
+import { HumidityGraphSection } from '../../components/humidity-graph-section/humidity-graph-section';
 
 @Component({
   selector: 'app-home-page',
-  imports: [NzButtonModule, CommonModule],
+  standalone: true,
+  imports: [
+    NzButtonModule,
+    CommonModule,
+    TemperatureChartSection,
+    TemperatureGraphSection,
+    HumidityGraphSection,
+  ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })

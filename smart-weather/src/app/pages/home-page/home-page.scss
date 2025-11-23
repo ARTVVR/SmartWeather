@@ -244,6 +244,7 @@
 
 @media (max-width: 1024px) {
   .temperature-section {
+    padding: 65px 0;
     height: auto;
 
     &__container {
@@ -267,8 +268,6 @@
 
 @media (max-width: 900px) {
   .temperature-section {
-    padding: 65px 0;
-
     &__header {
       width: 100%;
       margin-bottom: 40px;

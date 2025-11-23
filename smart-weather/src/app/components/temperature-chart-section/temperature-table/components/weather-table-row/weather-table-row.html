@@ -1,0 +1,25 @@
+<div class="table-row">
+  <div class="table-cell country-cell">
+    <div class="country-content">
+      <span class="flag-icon">🏴</span>
+      <span class="country-name">{{ weatherData().country }}</span>
+    </div>
+  </div>
+  <div class="table-cell capital-cell">
+    <span class="capital-name">{{ weatherData().capital }}</span>
+  </div>
+  <div class="table-cell temperature-cell">
+    <span class="temperature-value" [style.color]="getTemperatureColor()">
+      {{ temperature }}°C
+    </span>
+  </div>
+  <div class="table-cell weather-cell">
+    <div class="weather-content">
+      <span class="weather-icon">{{ getWeatherIcon() }}</span>
+      <span class="weather-description">{{ getWeatherDescription() }}</span>
+    </div>
+  </div>
+  <div class="table-cell time-cell">
+    <span class="time-value">{{ time | date: 'HH:mm' }}</span>
+  </div>
+</div>

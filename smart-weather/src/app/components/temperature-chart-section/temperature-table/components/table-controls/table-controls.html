@@ -1,0 +1,58 @@
+<div class="table-header">
+  <div class="controls-section">
+    <div class="search-control">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          [ngModel]="searchTerm()"
+          (ngModelChange)="onSearchChange($event)"
+          placeholder="Поиск страны или столицы..."
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <div class="right-controls">
+      <button
+        (click)="onRefresh()"
+        class="refresh-button"
+        [class.loading]="isLoading()"
+        [disabled]="isLoading()"
+      >
+        <span class="button-icon">{{ isLoading() ? '⏳' : '🔄' }}</span>
+        <span class="button-text">{{ isLoading() ? 'Обновление...' : 'Обновить' }}</span>
+      </button>
+
+      <div class="filter-buttons">
+        <button
+          (click)="onSortChange('temperature')"
+          [class.active]="sortColumn() === 'temperature'"
+          class="filter-button"
+        >
+          <span class="filter-icon">🌡️</span>
+          Температура
+          <span class="sort-indicator">
+            @if (sortColumn() === 'temperature') {
+              {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+            }
+          </span>
+        </button>
+
+        <button
+          (click)="onSortChange('country')"
+          [class.active]="sortColumn() === 'country'"
+          class="filter-button"
+        >
+          <span class="filter-icon">🏛️</span>
+          Страна
+          <span class="sort-indicator">
+            @if (sortColumn() === 'country') {
+              {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+            }
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
