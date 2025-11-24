@@ -63,10 +63,7 @@ export class WeatherApiService {
     return this.http.get<HourlyForecastData>(url);
   }
 
-  private mapToWeatherData(
-    weatherData: WeatherApiResponse,
-    country: Country,
-  ): WeatherData | null {
+  private mapToWeatherData(weatherData: WeatherApiResponse, country: Country): WeatherData | null {
     if (!weatherData.current) {
       return null;
     }
@@ -78,5 +75,9 @@ export class WeatherApiService {
       temperature_2m: [Math.round(weatherData.current.temperature_2m)],
       weather_code: [weatherData.current.weather_code],
     };
+  }
+  getDailyForecast(lat: number, lon: number, days = 7): Observable<HistoricalWeatherData> {
+    const url = `${API_CONFIG.WEATHER_BASE_URL}?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&forecast_days=${days}`;
+    return this.http.get<HistoricalWeatherData>(url);
   }
 }

@@ -1,0 +1,5 @@
+<app-period-selector
+  [selectedPeriod]="selectedPeriod"
+  (periodChange)="onPeriodChange($event)"
+></app-period-selector>
+<app-temperature-chart [period]="selectedPeriod"></app-temperature-chart>

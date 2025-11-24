@@ -1,0 +1,23 @@
+.period-selector {
+  padding: 8px;
+  background: #fafafa;
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid #d9d9d9;
+}
+
+::ng-deep {
+  .ant-segmented {
+    background: transparent;
+
+    .ant-segmented-item {
+      border-radius: 6px;
+      border: none;
+
+      &.ant-segmented-item-selected {
+        background: #1890ff;
+        color: white;
+        box-shadow: 0 2px 4px rgba(24, 144, 255, 0.2);
+      }
+    }
+  }
+}

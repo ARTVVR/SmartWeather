@@ -72,3 +72,11 @@ export interface TemperatureColors {
   extremeCold: string;
   arctic: string;
 }
+
+export type TemperaturePeriod = 'day' | 'week' | 'month';
+
+export interface TemperatureChartPoint {
+  timestamp: string;
+  label: string;
+  temperature: number;
+}

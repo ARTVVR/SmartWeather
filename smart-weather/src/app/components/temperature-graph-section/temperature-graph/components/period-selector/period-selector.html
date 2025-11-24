@@ -1,0 +1,9 @@
+<div class="period-selector">
+  <nz-segmented
+    [nzOptions]="periodOptions"
+    nzSize="large"
+    [(ngModel)]="selectedPeriod"
+    (ngModelChange)="onPeriodChange($event)"
+  >
+  </nz-segmented>
+</div>

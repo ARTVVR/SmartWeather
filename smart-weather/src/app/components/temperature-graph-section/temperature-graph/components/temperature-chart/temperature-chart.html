@@ -1,0 +1,15 @@
+<div class="temperature-chart">
+  <div #chartContainer class="temperature-chart__canvas"></div>
+
+  @if (isLoading()) {
+    <div class="temperature-chart__status">
+      <app-loading-state></app-loading-state>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="temperature-chart__status temperature-chart__status--error">
+      {{ errorMessage() }}
+    </div>
+  }
+</div>
