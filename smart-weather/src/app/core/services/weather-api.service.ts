@@ -7,6 +7,7 @@ import {
   Country,
   HistoricalWeatherData,
   HourlyForecastData,
+  WeatherDataUniversal,
 } from '../interfaces/weather.interface';
 import { GeocodingService } from './geocoding.service';
 import { API_CONFIG } from '../../shared/constants/weather.constants';
@@ -45,15 +46,6 @@ export class WeatherApiService {
     );
   }
 
-  getHistoricalWeatherData(
-    lat: number,
-    lon: number,
-    days: number = API_CONFIG.DEFAULT_HISTORICAL_DAYS,
-  ): Observable<HistoricalWeatherData> {
-    const url = `${API_CONFIG.WEATHER_BASE_URL}?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&past_days=${days}`;
-    return this.http.get<HistoricalWeatherData>(url);
-  }
-
   getHourlyForecast(
     lat: number,
     lon: number,
@@ -79,5 +71,20 @@ export class WeatherApiService {
   getDailyForecast(lat: number, lon: number, days = 7): Observable<HistoricalWeatherData> {
     const url = `${API_CONFIG.WEATHER_BASE_URL}?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&forecast_days=${days}`;
     return this.http.get<HistoricalWeatherData>(url);
+  }
+
+  getWeatherDataUniversal(
+    lat: number,
+    lon: number,
+    params: string,
+    days?: number,
+  ): Observable<WeatherDataUniversal> {
+    let url = `${API_CONFIG.WEATHER_BASE_URL}?latitude=${lat}&longitude=${lon}&${params}&timezone=auto`;
+
+    if (days) {
+      url += `&forecast_days=${days}`;
+    }
+
+    return this.http.get<WeatherDataUniversal>(url);
   }
 }

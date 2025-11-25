@@ -1,0 +1,96 @@
+.chart-card {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.chart-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.refresh-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.refresh-btn:not(:disabled):hover .refresh-icon {
+  transform: rotate(180deg);
+}
+
+.chart-content {
+  flex: 1; // Занимает все доступное пространство
+  min-height: 0; // Важно для flex-контейнера
+  position: relative;
+}
+
+.chart-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+.chart-footer {
+  margin-top: 16px;
+  text-align: center;
+  flex-shrink: 0; // Чтобы не сжимался
+}
+
+.chart-info {
+  color: #6b7280;
+  font-size: 12px;
+  font-style: italic;
+}

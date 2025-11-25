@@ -80,3 +80,21 @@ export interface TemperatureChartPoint {
   label: string;
   temperature: number;
 }
+
+export interface WeatherDataUniversal {
+  daily: {
+    time: string[];
+    relative_humidity_2m_mean: number[];
+  };
+  daily_units: {
+    time: string;
+    relative_humidity_2m_mean: string;
+  };
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+}
