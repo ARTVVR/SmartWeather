@@ -1,0 +1,23 @@
+<div class="chart-card">
+  <div class="chart-header">
+    <h2 class="chart-title">Влажность в Минске</h2>
+    <button class="refresh-btn" (click)="refreshData()" [disabled]="isLoading">
+      <span class="refresh-icon">↻</span>
+      Обновить
+    </button>
+  </div>
+
+  <div class="chart-content">
+    <div #chartContainer class="chart-container"></div>
+
+    @if (isLoading) {
+      <div class="loading-overlay">
+        <app-loading-state></app-loading-state>
+      </div>
+    }
+  </div>
+
+  <div class="chart-footer">
+    <span class="chart-info">Данные обновляются в реальном времени</span>
+  </div>
+</div>
