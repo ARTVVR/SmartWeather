@@ -2,6 +2,8 @@ import { Component, inject, OnInit, ViewChild, ElementRef, OnDestroy } from '@an
 import { WeatherApiService } from '../../../core/services/weather-api.service';
 import { Column } from '@antv/g2plot';
 import { LoadingState } from '../../../shared/components/loading-state/loading-state';
+import { COUNTRIES } from '../../../shared/constants/weather.constants';
+import { Country } from '../../../core/interfaces/weather.interface';
 
 interface DailyData {
   time: string[];
@@ -20,6 +22,8 @@ export class HumidityChart implements OnInit, OnDestroy {
 
   private weatherService = inject(WeatherApiService);
 
+  public readonly supportedCountries: Country[] = COUNTRIES;
+
   private dataHumidity: DailyData | null = null;
   private chart: Column | null = null;
 
@@ -29,8 +33,10 @@ export class HumidityChart implements OnInit, OnDestroy {
     this.getHumidityData();
   }
   getHumidityData() {
+    const belarus = this.supportedCountries.find((country) => country.name === 'Беларусь');
+
     this.weatherService
-      .getWeatherDataUniversal(53.9023, 27.5619, 'daily=relative_humidity_2m_mean', 7)
+      .getWeatherDataUniversal(belarus!.lat, belarus!.lon, 'daily=relative_humidity_2m_mean', 7)
       .subscribe({
         next: (data) => {
           this.dataHumidity = data.daily;

@@ -23,8 +23,15 @@ export class Header implements OnInit {
       }
     });
   }
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.scrollToTop();
   }
 }

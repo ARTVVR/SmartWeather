@@ -45,6 +45,8 @@ export interface GeoApiResponse {
 export interface Country {
   name: string;
   capital: string;
+  lat: number;
+  lon: number;
 }
 
 export type SortColumn = 'temperature' | 'country';
@@ -82,6 +84,10 @@ export interface TemperatureChartPoint {
 }
 
 export interface WeatherDataUniversal {
+  hourly: {
+    wind_speed_10m: number[];
+    wind_direction_10m: number[];
+  };
   daily: {
     time: string[];
     relative_humidity_2m_mean: number[];
@@ -97,4 +103,12 @@ export interface WeatherDataUniversal {
   timezone: string;
   timezone_abbreviation: string;
   elevation: number;
+}
+
+export interface ChartDataItem {
+  country: string;
+  value: number;
+  direction?: string;
+  degrees?: number;
+  color?: string;
 }

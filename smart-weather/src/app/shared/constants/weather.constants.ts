@@ -91,7 +91,7 @@ export const TEMPERATURE_RANGES = {
   CHILLY: 0,
   FREEZING: -5,
   VERY_COLD: -10,
-  ARCTIC: -Infinity, // Все что ниже -10
+  ARCTIC: -Infinity,
 } as const;
 
 export const TEMPERATURE_COLORS: TemperatureColors = {
@@ -124,18 +124,18 @@ export const API_CONFIG = {
 } as const;
 
 export const COUNTRIES: Country[] = [
-  { name: 'Россия', capital: 'Москва' },
-  { name: 'Беларусь', capital: 'Минск' },
-  { name: 'Украина', capital: 'Киев' },
-  { name: 'Казахстан', capital: 'Астана' },
-  { name: 'Узбекистан', capital: 'Ташкент' },
-  { name: 'Азербайджан', capital: 'Баку' },
-  { name: 'Грузия', capital: 'Тбилиси' },
-  { name: 'Кыргызстан', capital: 'Бишкек' },
-  { name: 'Таджикистан', capital: 'Душанбе' },
-  { name: 'Туркменистан', capital: 'Ашхабад' },
-  { name: 'Молдова', capital: 'Кишинев' },
-  { name: 'Армения', capital: 'Ереван' },
+  { name: 'Россия', capital: 'Москва', lat: 55.7558, lon: 37.6173 },
+  { name: 'Беларусь', capital: 'Минск', lat: 53.9, lon: 27.5667 },
+  { name: 'Украина', capital: 'Киев', lat: 50.45, lon: 30.5233 },
+  { name: 'Казахстан', capital: 'Астана', lat: 51.1333, lon: 71.4333 },
+  { name: 'Узбекистан', capital: 'Ташкент', lat: 41.3167, lon: 69.25 },
+  { name: 'Азербайджан', capital: 'Баку', lat: 40.3667, lon: 49.8352 },
+  { name: 'Грузия', capital: 'Тбилиси', lat: 41.7167, lon: 44.7833 },
+  { name: 'Кыргызстан', capital: 'Бишкек', lat: 42.8667, lon: 74.5667 },
+  { name: 'Таджикистан', capital: 'Душанбе', lat: 38.5731, lon: 68.7864 },
+  { name: 'Туркменистан', capital: 'Ашхабад', lat: 37.95, lon: 58.3833 },
+  { name: 'Молдова', capital: 'Кишинев', lat: 47.0167, lon: 28.85 },
+  { name: 'Армения', capital: 'Ереван', lat: 40.1833, lon: 44.5167 },
 ];
 
 export const WEATHER_CONFIG: WeatherConfig = {
@@ -144,4 +144,32 @@ export const WEATHER_CONFIG: WeatherConfig = {
     column: 'temperature',
     direction: 'desc',
   },
+};
+export const CHART_CONFIG = {
+  COLORS: [
+    '#6366f1',
+    '#8b5cf6',
+    '#ec4899',
+    '#f59e0b',
+    '#10b981',
+    '#ef4444',
+    '#3b82f6',
+    '#84cc16',
+    '#f97316',
+    '#06b6d4',
+    '#a855f7',
+    '#14b8a6',
+    '#f43f5e',
+  ],
+  PAGE_SIZE: 6,
+  WIND_DIRECTIONS: [
+    { min: 337.5, max: 22.5, direction: 'С' },
+    { min: 22.5, max: 67.5, direction: 'СВ' },
+    { min: 67.5, max: 112.5, direction: 'В' },
+    { min: 112.5, max: 157.5, direction: 'ЮВ' },
+    { min: 157.5, max: 202.5, direction: 'Ю' },
+    { min: 202.5, max: 247.5, direction: 'ЮЗ' },
+    { min: 247.5, max: 292.5, direction: 'З' },
+    { min: 292.5, max: 337.5, direction: 'СЗ' },
+  ],
 };

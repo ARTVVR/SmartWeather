@@ -9,15 +9,30 @@
           условиях.
         </p>
         <div class="presentation__actions">
-          <button nz-button nzSize="large" class="presentation__button">Исследовать</button>
-          <button nz-button nzSize="large" nzGhost class="presentation__button">Подробнее</button>
+          <button
+            nz-button
+            nzSize="large"
+            (click)="scrollToTemperature(temperatureSection)"
+            class="presentation__button"
+          >
+            Исследовать
+          </button>
+          <button
+            nz-button
+            nzSize="large"
+            (click)="scrollToTemperature(temperatureChartSection)"
+            nzGhost
+            class="presentation__button"
+          >
+            Подробнее
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="temperature-section">
+<section #temperatureSection class="temperature-section">
   <div class="temperature-section__container">
     <div class="temperature-section__content">
       <div class="temperature-section__header">
@@ -38,7 +53,13 @@
             <span class="temperature-column__label">{{ column.title }}</span>
             <h3 class="temperature-column__subtitle">{{ column.subtitle }}</h3>
             <p class="temperature-column__description">{{ column.description }}</p>
-            <button nz-button class="temperature-column__button">Смотреть ></button>
+            <button
+              (click)="scrollToTemperature(column.section)"
+              nz-button
+              class="temperature-column__button"
+            >
+              Смотреть >
+            </button>
           </div>
         </div>
       </div>
@@ -46,6 +67,14 @@
   </div>
 </section>
 
+<div #temperatureChartSection></div>
 <app-temperature-chart-section></app-temperature-chart-section>
+
+<div #temperatureGraphSection></div>
 <app-temperature-graph-section></app-temperature-graph-section>
+
+<div #windChartSection></div>
+<app-wind-chart-section></app-wind-chart-section>
+
+<div #humidityChartSection></div>
 <app-humidity-graph-section></app-humidity-graph-section>

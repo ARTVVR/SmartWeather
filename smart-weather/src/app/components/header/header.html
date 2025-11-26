@@ -2,7 +2,7 @@
   <nz-layout class="header__layout">
     <nz-header class="header__inner">
       <div class="header__container">
-        <div class="header__logo" routerLink="/">
+        <div class="header__logo" (click)="scrollToTop()" routerLink="/">
           <img
             src="/assets/images/SmartWeather_Logo.png"
             alt="SmartWeather"
@@ -11,8 +11,22 @@
         </div>
 
         <ul nz-menu nzMode="horizontal" class="header__menu header__menu--desktop">
-          <li nz-menu-item [nzSelected]="selectedMenu === '/'" routerLink="/">Главная</li>
-          <li nz-menu-item [nzSelected]="selectedMenu === '/notes'" routerLink="/notes">Заметки</li>
+          <li
+            nz-menu-item
+            [nzSelected]="selectedMenu === '/'"
+            (click)="scrollToTop()"
+            routerLink="/"
+          >
+            Главная
+          </li>
+          <li
+            nz-menu-item
+            [nzSelected]="selectedMenu === '/notes'"
+            (click)="scrollToTop()"
+            routerLink="/notes"
+          >
+            Заметки
+          </li>
         </ul>
 
         <div class="header__burger" (click)="toggleMobileMenu()">
