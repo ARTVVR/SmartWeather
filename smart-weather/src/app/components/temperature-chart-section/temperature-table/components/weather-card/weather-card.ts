@@ -39,7 +39,7 @@ export class WeatherCard {
     return this.weatherUtils.getTemperatureColor(this.temperature);
   }
 
-  getTemperatureStyles(): { [key: string]: string } {
+  getTemperatureStyles(): Record<string, string> {
     const color = this.getTemperatureColor();
     return {
       background: `${color}20`,
@@ -48,4 +48,3 @@ export class WeatherCard {
     };
   }
 }
-

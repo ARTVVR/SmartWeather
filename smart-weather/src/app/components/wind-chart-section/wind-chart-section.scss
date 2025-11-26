@@ -1,13 +1,13 @@
 .table-section {
-  background: #005f91;
+  background: #0077b6;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1339px;
+  height: max-content;
 
   &__container {
     width: 1440px;
-    height: 1339px;
+    height: max-content;
     padding: 110px 0;
     display: flex;
     justify-content: center;
@@ -20,7 +20,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ffffff;
   }
 
   &__header {
@@ -32,6 +31,7 @@
   &__subtitle {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -40,15 +40,16 @@
     font-family: 'Sora', sans-serif;
     font-weight: 600;
     font-size: 60px;
+    color: #ffffff;
     margin: 16px 0 0 0;
     line-height: 1.1;
-    color: #ffffff;
   }
 
   &__description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 20px;
+    color: #ffffff;
     margin: 32px 0 0 0;
     line-height: 1.6;
   }
@@ -56,13 +57,11 @@
   &__table-container {
     margin-top: 18px;
     width: 1280px;
-    height: 738px;
-    background: #ff0000;
+    height: 100%;
     border-radius: 12px;
   }
 }
 
-/* Адаптивность */
 @media (max-width: 1440px) {
   .table-section {
     &__container {
@@ -88,7 +87,6 @@
 @media (max-width: 1024px) {
   .table-section {
     height: auto;
-    min-height: 1000px;
 
     &__container {
       height: auto;
@@ -103,17 +101,11 @@
     &__title {
       font-size: 48px;
     }
-
-    &__table-container {
-      height: 600px;
-    }
   }
 }
 
 @media (max-width: 768px) {
   .table-section {
-    min-height: 800px;
-
     &__container {
       padding: 60px 20px;
     }
@@ -132,7 +124,6 @@
     }
 
     &__table-container {
-      height: 500px;
       margin-top: 10px;
     }
   }
@@ -140,8 +131,6 @@
 
 @media (max-width: 500px) {
   .table-section {
-    min-height: 700px;
-
     &__container {
       padding: 40px 16px;
     }
@@ -154,10 +143,6 @@
       font-size: 16px;
       margin: 20px 0 0 0;
     }
-
-    &__table-container {
-      height: 400px;
-    }
   }
 }
 
@@ -165,10 +150,6 @@
   .table-section {
     &__title {
       font-size: 28px;
-    }
-
-    &__table-container {
-      height: 350px;
     }
   }
 }

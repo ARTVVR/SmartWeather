@@ -1,0 +1,52 @@
+<div class="wind-chart">
+  <div class="chart-content">
+    <div class="chart-header">
+      <div class="subtitle">Средняя скорость ветра в м/с • {{ currentDate }}</div>
+      <button class="refresh-btn" (click)="refreshData()" [disabled]="isLoading">
+        {{ isLoading ? 'Обновление...' : '↻ Обновить' }}
+      </button>
+    </div>
+
+    <div class="layout-container">
+      <div class="chart-section">
+        <div class="chart-container">
+          <div #chartContainer class="chart"></div>
+          <div *ngIf="isLoading" class="loading-overlay">
+            <app-loading-state></app-loading-state>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-section">
+        <div class="countries-list">
+          <div
+            *ngFor="let country of displayedCountries; trackBy: trackByCountry"
+            class="country-item"
+            [style.border-left]="'4px solid ' + getCountryColor(country.country)"
+          >
+            <div class="country-card">
+              <div class="country-name">{{ country.country }}</div>
+              <div class="wind-stats">
+                <span class="speed" [style.color]="getCountryColor(country.country)">
+                  {{ country.value }} м/с
+                </span>
+                <span class="direction">{{ country.direction }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nz-pagination
+          *ngIf="chartData.length > pageSize"
+          class="pagination"
+          [nzPageIndex]="currentPage"
+          [nzTotal]="chartData.length"
+          [nzPageSize]="pageSize"
+          [nzSize]="'small'"
+          (nzPageIndexChange)="onPageChange($event)"
+        >
+        </nz-pagination>
+      </div>
+    </div>
+  </div>
+</div>
